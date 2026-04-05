@@ -1,5 +1,6 @@
 import { Minus, Square, X } from "lucide-react";
 import { GitHubCalendar } from "react-github-calendar";
+import profileImg from "./assets/profile.jpg";
 
 function App() {
   return (
@@ -45,17 +46,17 @@ function App() {
             {/* PROFILE HEADSHOT */}
             <div className="relative w-full aspect-square grayscale border border-outline-variant/50 group shrink-0">
               <img
-                alt="Eli Van Drick"
+                alt="yujunpan"
                 className="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-opacity"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA__TvALFzEtUWe-P3dYuR-U8bGlmLyS6lyxuxJulxirp_JbOR0KOTPTPqEf9AIP697tWWCYuhCPEX1xZXixoUukmiP_69Qo9gPw7liNTkoiTsGnu-Z_dTFHH98dO2SXYzeVDN9PEkXxhjyPNsCdKtHYLecBxfVKG4zug1HlJV9M7lIXowT7HnhVZUNyOUU1T5WtFlkyzR0ATf_ilqqZWqh1b0veNAZnY8VV2si3_ywSg449a9gIfY03l_0VqzCX_C1nUfgCOwMR-U"
+                src={profileImg}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div className="absolute bottom-4 left-4">
                 <h1 className="text-on-surface font-bold text-xl leading-none">
-                  ELI VAN DRICK
+                  Yujun
                 </h1>
                 <p className="text-primary text-[10px] tracking-widest mt-1 font-mono uppercase">
-                  Principal Architect
+                  Product Engineering
                 </p>
               </div>
             </div>
@@ -64,7 +65,7 @@ function App() {
             <div className="space-y-1 font-mono text-[11px] shrink-0">
               <div className="flex justify-between border-b border-outline-variant/10 py-1">
                 <span className="text-on-surface-variant">KERNEL</span>
-                <span className="text-on-surface">VON_NEUMANN_OS</span>
+                <span className="text-on-surface">INTJ</span>
               </div>
               <div className="flex justify-between border-b border-outline-variant/10 py-1">
                 <span className="text-on-surface-variant">NODE_ID</span>
@@ -87,7 +88,7 @@ function App() {
                 </span>
                 <div className="bg-surface-container-high p-3 text-on-surface-variant leading-relaxed">
                   Specializing in distributed systems and high-precision UI
-                  engineering. Architecting the void since 2014.
+                  engineering. Architecting the void since 2026.
                 </div>
               </div>
               <div>
@@ -238,9 +239,23 @@ function App() {
               <span className="w-2 h-4 bg-primary-container ml-1 blink shadow-[0_0_5px_#00FFC3]"></span>
             </div>
             <div className="flex gap-6 text-neutral-600 font-mono text-[10px] uppercase tracking-widest">
-              <span className="hover:text-emerald-400 cursor-pointer transition-colors">GITHUB</span>
-              <span className="hover:text-emerald-400 cursor-pointer transition-colors">SOURCE</span>
-              <span className="text-emerald-400 underline decoration-emerald-500/50">STATUS</span>
+              <a
+                href="https://github.com/wushixuan238"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-emerald-400 cursor-pointer transition-colors"
+              >
+                GITHUB
+              </a>
+              <a
+                href="mailto:wushixuan238@gmail.com"
+                className="hover:text-emerald-400 cursor-pointer transition-colors"
+              >
+                EMAIL
+              </a>
+              <span className="text-emerald-400 underline decoration-emerald-500/50">
+                STATUS
+              </span>
             </div>
           </div>
         </footer>
@@ -248,7 +263,7 @@ function App() {
 
       {/* FOOTER COPYRIGHT */}
       <div className="fixed bottom-4 right-6 text-[10px] font-mono text-neutral-600 uppercase tracking-widest">
-        ©2024 CORE_TERMINAL
+        ©2026 CORE_TERMINAL
       </div>
     </div>
   );
