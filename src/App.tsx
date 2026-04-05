@@ -281,8 +281,16 @@ function App() {
       </div>
 
       {/* FOOTER COPYRIGHT */}
-      <div className="fixed bottom-4 right-6 text-[10px] font-mono text-neutral-600 uppercase tracking-widest">
-        ©2026 CORE_TERMINAL
+      <div
+        className="fixed bottom-4 left-1/2 -translate-x-1/2 text-neutral-600 tracking-wider group cursor-default"
+        style={{ fontFamily: "'Caveat', cursive", fontSize: '1.0rem', fontWeight: 'bold' }}
+      >
+        <div className="inline-flex items-center transition-colors duration-300 group-hover:text-emerald-400 relative">
+          "yujunpan@2026:~$"
+          <span className="absolute -right-3 top-0 hidden text-emerald-400 group-hover:inline-block blink font-mono">
+            _
+          </span>
+        </div>
       </div>
     </div>
   );
