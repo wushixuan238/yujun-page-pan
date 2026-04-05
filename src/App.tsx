@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Minus, Square, X, Maximize2 } from "lucide-react";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { SiGmail } from "react-icons/si";
@@ -211,17 +211,17 @@ function Home() {
                           COMMIT_ACTIVITY
                         </h2>
                       </div>
-                      <div className="w-full">
+                      <div className="w-full overflow-x-auto">
                         <GitHubCalendar
                           username="wushixuan238"
                           colorScheme="light"
                           theme={{
                             light: [
-                              "#ebedf0",
-                              "#79AEAD",
-                              "#4A6B6A",
-                              "#324A49",
-                              "#20302F",
+                              "#FAF9F6",
+                              "#9be9a8",
+                              "#40c463",
+                              "#30a14e",
+                              "#216e39",
                             ],
                           }}
                         />

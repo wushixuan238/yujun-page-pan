@@ -86,7 +86,8 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 2px;
+  width: 4px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -94,8 +95,20 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-outline-variant);
+  background: rgba(50, 74, 73, 0.2);
+  border-radius: 4px;
 }
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(50, 74, 73, 0.4);
+}
+
+/* For Firefox and standards compliance */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(50, 74, 73, 0.2) transparent;
+}
+
 
 /* REACT TERMINAL OVERRIDES */
 .react-terminal-wrapper * {
@@ -111,17 +124,21 @@ body {
   top: 3px !important;
 }
 
-/* Ensure the internal terminal container doesn't force a large height and eliminate scrollbars/borders */
-.react-terminal-wrapper>div,
-.react-terminal-wrapper>div>div,
+/* Ensure the internal terminal container is truly transparent and borderless */
+.react-terminal-wrapper,
+.react-terminal-wrapper > div,
+.react-terminal-wrapper > div > div,
 .react-terminal-wrapper [class*='terminalContainer'],
 .react-terminal-wrapper [class*='terminal'],
-.react-terminal-wrapper [class*='editor'] {
+.react-terminal-wrapper [class*='editor'],
+.react-terminal-wrapper [class*='input'] {
   padding: 0 !important;
   min-height: unset !important;
   border: none !important;
   box-shadow: none !important;
   outline: none !important;
+  background-color: transparent !important;
+  background: transparent !important;
 }
 
 .react-terminal-wrapper ::-webkit-scrollbar {
@@ -139,8 +156,11 @@ body {
 
 /* The prompt we supply is explicitly 11px, but the user input should match */
 .react-terminal-wrapper input,
-.react-terminal-wrapper .terminal-line {
+.react-terminal-wrapper .terminal-line,
+.react-terminal-wrapper [class*='commandText'],
+.react-terminal-wrapper [class*='outputText'] {
   color: #1A1C19 !important;
+  background: transparent !important;
 }
 
 .monolith-border {
@@ -183,6 +203,19 @@ body {
   right: -1px;
   border-bottom: 1px solid;
   border-right: 1px solid;
+}
+
+/* GLOBAL TOOLTIP REFINEMENT (for GitHub Calendar, etc.) */
+[class*='tooltip'],
+.react-activity-calendar__tooltip {
+  background: #F0EFED !important;
+  color: #1A1C19 !important;
+  border: 1px solid rgba(50, 74, 73, 0.2) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  padding: 4px 8px !important;
+  border-radius: 2px !important;
 }
 
 @theme inline {
