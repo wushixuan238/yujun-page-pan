@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+  # 允许手动触发
+  workflow_dispatch:
+  # 每天定时触发（UTC 时间 04:00，即北京时间 12:00）
+  schedule:
+    - cron: "0 4 * * *"
 
 # 设置 GitHub Pages 部署所需的权限
 permissions:
@@ -33,6 +38,12 @@ jobs:
 
       - name: Install dependencies
         run: bun install
+
+      - name: Fetch Notion data
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: bun run scripts/fetch-notion.js
 
       - name: Build project
         run: bun run build
