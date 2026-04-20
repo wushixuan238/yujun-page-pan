@@ -62,6 +62,28 @@ function parseRichText(richText) {
   return richText?.map((item) => item.plain_text).join("") || "";
 }
 
+// Convert Notion rich text to Markdown with annotations
+function formatRichText(richText) {
+  if (!richText) return "";
+  return richText.map((item) => {
+    let text = item.plain_text;
+    if (!text) return "";
+
+    if (item.href) {
+      text = `[${text}](${item.href})`;
+    }
+
+    if (item.annotations) {
+      if (item.annotations.code) text = `\`${text}\``;
+      if (item.annotations.bold) text = `**${text}**`;
+      if (item.annotations.italic) text = `*${text}*`;
+      if (item.annotations.strikethrough) text = `~~${text}~~`;
+    }
+
+    return text;
+  }).join("");
+}
+
 // Convert Notion blocks to Markdown
 function blocksToMarkdown(blocks) {
   if (!blocks || blocks.length === 0) return "";
@@ -75,44 +97,37 @@ function blocksToMarkdown(blocks) {
 
       switch (type) {
         case "paragraph": {
-          const text =
-            content?.rich_text?.map((item) => item.plain_text).join("") || "";
+          const text = formatRichText(content?.rich_text);
           return text || null;
         }
 
         case "heading_1": {
-          const text =
-            content?.rich_text?.map((item) => item.plain_text).join("") || "";
+          const text = formatRichText(content?.rich_text);
           return `# ${text}`;
         }
 
         case "heading_2": {
-          const text =
-            content?.rich_text?.map((item) => item.plain_text).join("") || "";
+          const text = formatRichText(content?.rich_text);
           return `## ${text}`;
         }
 
         case "heading_3": {
-          const text =
-            content?.rich_text?.map((item) => item.plain_text).join("") || "";
+          const text = formatRichText(content?.rich_text);
           return `### ${text}`;
         }
 
         case "bulleted_list_item": {
-          const text =
-            content?.rich_text?.map((item) => item.plain_text).join("") || "";
+          const text = formatRichText(content?.rich_text);
           return `- ${text}`;
         }
 
         case "numbered_list_item": {
-          const text =
-            content?.rich_text?.map((item) => item.plain_text).join("") || "";
+          const text = formatRichText(content?.rich_text);
           return `1. ${text}`;
         }
 
         case "to_do": {
-          const text =
-            content?.rich_text?.map((item) => item.plain_text).join("") || "";
+          const text = formatRichText(content?.rich_text);
           const checked = content?.checked ? "[x]" : "[ ]";
           return `${checked} ${text}`;
         }
@@ -125,8 +140,7 @@ function blocksToMarkdown(blocks) {
         }
 
         case "quote": {
-          const text =
-            content?.rich_text?.map((item) => item.plain_text).join("") || "";
+          const text = formatRichText(content?.rich_text);
           return `> ${text}`;
         }
 
@@ -135,8 +149,7 @@ function blocksToMarkdown(blocks) {
         }
 
         case "callout": {
-          const text =
-            content?.rich_text?.map((item) => item.plain_text).join("") || "";
+          const text = formatRichText(content?.rich_text);
           const emoji = content?.icon?.emoji || "💡";
           return `> ${emoji} ${text}`;
         }
