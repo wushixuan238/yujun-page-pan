@@ -9,7 +9,7 @@ import { TextPlugin } from "gsap/TextPlugin";
 import { motion, AnimatePresence } from "framer-motion";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
-import profileImg from "./assets/profile.jpg";
+import profileImg from "./assets/thom.jpg";
 import Resume from "./components/Resume";
 import Archive from "./components/Archive";
 import { SPRING_PRESETS } from "./lib/animation";
@@ -240,12 +240,12 @@ function Home() {
                     {/* KEY-VALUE PAIRS */}
                     <div className="space-y-1 font-body text-[11px] shrink-0">
                       <div className="flex justify-between py-1">
-                        <span className="text-muted-foreground">MBTI</span>
-                        <span className="text-foreground">INTJ</span>
-                      </div>
-                      <div className="flex justify-between py-1">
                         <span className="text-muted-foreground">BIRTH</span>
                         <span className="text-foreground">2001-04</span>
+                      </div>
+                      <div className="flex justify-between py-1">
+                        <span className="text-muted-foreground">MBTI</span>
+                        <span className="text-foreground">INTJ</span>
                       </div>
                     </div>
 
