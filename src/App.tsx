@@ -16,6 +16,7 @@ import { SPRING_PRESETS } from "./lib/animation";
 import Article from "./components/Article";
 import NotionDebug from "./components/NotionDebug";
 import { ThemeToggle } from "./components/ThemeToggle";
+import Projects from "./components/Projects";
 
 gsap.registerPlugin(TextPlugin);
 
@@ -375,10 +376,11 @@ function Home() {
                     return mottos[Math.floor(Math.random() * mottos.length)];
                   },
                   date: new Date().toString(),
-                  help: "Available commands: ethos, date, help, clear, resume, archive",
+                  help: "Available commands: ethos, date, help, clear, resume, archive, projects",
                   "monolith start": () => setIsMinimized(false), // Secret expand command!
                   resume: () => navigate("/resume"),
                   archive: () => navigate("/archive"),
+                  projects: () => navigate("/projects"),
                 }}
                 prompt={
                   <span
@@ -445,6 +447,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/archive" element={<Archive />} />
+          <Route path="/projects" element={<Projects />} />
           <Route path="/article/:slug" element={<Article />} />
           <Route path="/debug" element={<NotionDebug />} />
         </Routes>
