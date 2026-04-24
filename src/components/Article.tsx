@@ -94,6 +94,11 @@ const Article = () => {
           transition={{ delay: 0.1 }}
           className="mb-16 text-center"
         >
+          {/* Metadata */}
+          <div className="font-mono text-[10px] text-muted-foreground tracking-[0.2em] uppercase mb-8 opacity-60">
+            {post.category} // {post.date}
+          </div>
+
           <h1 className="text-5xl lg:text-6xl font-headline leading-tight mb-6 text-foreground">
             {post.title}
           </h1>
