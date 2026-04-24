@@ -240,11 +240,11 @@ function Home() {
                     {/* KEY-VALUE PAIRS */}
                     <div className="space-y-1 font-body text-[11px] shrink-0">
                       <div className="flex justify-between py-1">
-                        <span className="text-muted-foreground">KERNEL</span>
+                        <span className="text-muted-foreground">MBTI</span>
                         <span className="text-foreground">INTJ</span>
                       </div>
                       <div className="flex justify-between py-1">
-                        <span className="text-muted-foreground">NODE_ID</span>
+                        <span className="text-muted-foreground">BIRTH</span>
                         <span className="text-foreground">2001-04</span>
                       </div>
                     </div>
