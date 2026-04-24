@@ -22,7 +22,7 @@ function Root() {
     <>
       {showGreeting && (
         <div 
-          className={`fixed inset-0 z-50 flex items-center justify-center bg-[#FAF9F6] transition-opacity duration-1000 ease-in-out ${fadeOut ? 'opacity-0' : 'opacity-100'}`}
+          className={`fixed inset-0 z-50 flex items-center justify-center bg-background transition-opacity duration-1000 ease-in-out ${fadeOut ? 'opacity-0' : 'opacity-100'}`}
         >
           <Greeting onComplete={handleGreetingComplete} />
         </div>

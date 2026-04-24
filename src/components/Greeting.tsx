@@ -15,8 +15,8 @@ const tabs: TabContent[] = [
     lines: [
       { text: "", delay: 100 },
       { text: "{", delay: 100 },
-      { text: '  "name": "Yujun Pan",', delay: 100, color: "text-[#324A49]" },
-      { text: '  "role": "Product Engineering",', delay: 100, color: "text-[#324A49]" },
+      { text: '  "name": "Yujun Pan",', delay: 100, color: "text-primary" },
+      { text: '  "role": "Product Engineering",', delay: 100, color: "text-primary" },
       { text: "}", delay: 100 },
       { text: "", delay: 100 },
     ],
@@ -38,24 +38,24 @@ export function Greeting({ onComplete }: { onComplete?: () => void }) {
         <TerminalAnimationWindow
           backgroundColor="transparent"
           minHeight="180px"
-          className="border border-neutral-200/60 shadow-xl rounded-lg bg-white/50 backdrop-blur-md"
+          className="border border-border shadow-xl rounded-lg bg-card/50 backdrop-blur-md"
           animateOnVisible={true}
         >
           {/* Default Mac-style title bar */}
-          <div className="flex items-center px-4 h-8 bg-neutral-100/80 border-b border-neutral-200/50">
+          <div className="flex items-center px-4 h-8 bg-muted/80 border-b border-border">
             <div className="flex gap-1.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#324A49]/30"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-[#324A49]/30"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-[#324A49]/30"></div>
+              <div className="w-2.5 h-2.5 rounded-full bg-primary/30"></div>
+              <div className="w-2.5 h-2.5 rounded-full bg-primary/30"></div>
+              <div className="w-2.5 h-2.5 rounded-full bg-primary/30"></div>
             </div>
           </div>
 
           <TerminalAnimationContent className="text-sm font-mono p-5 leading-relaxed">
             <div className="flex items-center gap-2">
-              <span className="text-[#324A49] font-bold">guest@yujun:~$</span>
-              <TerminalAnimationCommandBar className="text-neutral-900 font-medium" />
+              <span className="text-primary font-bold">guest@yujun:~$</span>
+              <TerminalAnimationCommandBar className="text-foreground font-medium" />
             </div>
-            <TerminalAnimationOutput className="mt-1 text-neutral-600 whitespace-pre font-medium" />
+            <TerminalAnimationOutput className="mt-1 text-foreground/80 whitespace-pre font-medium" />
           </TerminalAnimationContent>
         </TerminalAnimationWindow>
       </TerminalAnimationRoot>

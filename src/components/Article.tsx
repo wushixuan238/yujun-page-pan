@@ -46,9 +46,9 @@ const Article = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="min-h-screen bg-[#FAF9F6] text-[#1A1C19] flex items-center justify-center"
+        className="min-h-screen bg-background text-foreground flex items-center justify-center"
       >
-        <div className="font-mono text-[11px] text-neutral-500">
+        <div className="font-mono text-[11px] text-muted-foreground">
           LOADING ARTICLE_DATA...
         </div>
       </motion.div>
@@ -61,14 +61,14 @@ const Article = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="min-h-screen bg-[#FAF9F6] text-[#1A1C19] flex flex-col items-center justify-center gap-6"
+        className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center gap-6"
       >
         <div className="font-mono text-[11px] text-red-500">
           {error || "Article not found"}
         </div>
         <button
           onClick={() => navigate("/archive")}
-          className="text-[11px] font-mono font-bold text-[#324A49] hover:underline underline-offset-8 transition-all"
+          className="text-[11px] font-mono font-bold text-primary hover:underline underline-offset-8 transition-all"
         >
           ← BACK_TO_ARCHIVE
         </button>
@@ -82,19 +82,19 @@ const Article = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={SPRING_PRESETS.smooth}
-      className="min-h-screen bg-[#FAF9F6] text-[#1A1C19] overflow-y-auto"
+      className="min-h-screen bg-background text-foreground overflow-y-auto"
     >
       {/* Article Header */}
-      <header className="sticky top-0 z-40 bg-[#FAF9F6]/80 backdrop-blur-md border-b border-neutral-200/50">
+      <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b border-border/50">
         <div className="max-w-4xl mx-auto px-8 py-6 flex items-center justify-between">
           <button
             onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-[#324A49] hover:text-[#1A1C19] transition-colors font-mono text-[10px] tracking-widest uppercase font-bold"
+            className="flex items-center gap-2 text-primary hover:text-foreground transition-colors font-mono text-[10px] tracking-widest uppercase font-bold"
           >
             <ArrowLeft size={16} />
             <span>BACK</span>
           </button>
-          <div className="font-mono text-[9px] text-neutral-400 tracking-wider">
+          <div className="font-mono text-[9px] text-muted-foreground tracking-wider">
             {post.category} // {post.date}
           </div>
         </div>
@@ -109,10 +109,10 @@ const Article = () => {
           transition={{ delay: 0.1 }}
           className="mb-16"
         >
-          <h1 className="text-5xl lg:text-6xl font-headline leading-tight mb-6 text-[#1A1C19]">
+          <h1 className="text-5xl lg:text-6xl font-headline leading-tight mb-6 text-foreground">
             {post.title}
           </h1>
-          <p className="text-xl text-neutral-500 leading-relaxed font-body italic">
+          <p className="text-xl text-muted-foreground leading-relaxed font-body italic">
             {post.excerpt}
           </p>
         </motion.div>
@@ -127,38 +127,38 @@ const Article = () => {
           <ReactMarkdown
             components={{
               h1: ({ children }) => (
-                <h1 className="text-4xl font-headline mt-12 mb-6 text-[#1A1C19]">
+                <h1 className="text-4xl font-headline mt-12 mb-6 text-foreground">
                   {children}
                 </h1>
               ),
               h2: ({ children }) => (
-                <h2 className="text-3xl font-headline mt-10 mb-4 text-[#1A1C19]">
+                <h2 className="text-3xl font-headline mt-10 mb-4 text-foreground">
                   {children}
                 </h2>
               ),
               h3: ({ children }) => (
-                <h3 className="text-2xl font-headline mt-8 mb-3 text-[#1A1C19]">
+                <h3 className="text-2xl font-headline mt-8 mb-3 text-foreground">
                   {children}
                 </h3>
               ),
               p: ({ children }) => (
-                <p className="mb-6 leading-relaxed text-[#1A1C19]/80 font-body">
+                <p className="mb-6 leading-relaxed text-foreground/80 font-body">
                   {children}
                 </p>
               ),
               ul: ({ children }) => (
-                <ul className="list-disc pl-6 mb-6 space-y-2 text-[#1A1C19]/80">
+                <ul className="list-disc pl-6 mb-6 space-y-2 text-foreground/80">
                   {children}
                 </ul>
               ),
               ol: ({ children }) => (
-                <ol className="list-decimal pl-6 mb-6 space-y-2 text-[#1A1C19]/80">
+                <ol className="list-decimal pl-6 mb-6 space-y-2 text-foreground/80">
                   {children}
                 </ol>
               ),
               li: ({ children }) => <li>{children}</li>,
               blockquote: ({ children }) => (
-                <blockquote className="border-l-4 border-[#324A49] pl-6 py-2 my-6 italic text-neutral-600 bg-[#324A49]/5 rounded-r-lg">
+                <blockquote className="border-l-4 border-primary pl-6 py-2 my-6 italic text-muted-foreground bg-primary/5 rounded-r-lg">
                   {children}
                 </blockquote>
               ),
@@ -167,14 +167,14 @@ const Article = () => {
                 const isInline = !match;
                 return isInline ? (
                   <code
-                    className="bg-neutral-100 px-1.5 py-0.5 rounded text-sm font-mono text-[#C7254E]"
+                    className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-destructive"
                     {...props}
                   >
                     {children}
                   </code>
                 ) : (
                   <code
-                    className={`block bg-neutral-900 text-[#FAF9F6] p-6 rounded-lg overflow-x-auto my-6 font-mono text-sm ${className}`}
+                    className={`block bg-neutral-900 text-neutral-100 p-6 rounded-lg overflow-x-auto my-6 font-mono text-sm ${className}`}
                     {...props}
                   >
                     {children}
@@ -185,7 +185,7 @@ const Article = () => {
               a: ({ children, href }) => (
                 <a
                   href={href}
-                  className="text-[#324A49] hover:underline underline-offset-4"
+                  className="text-primary hover:underline underline-offset-4"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -193,12 +193,12 @@ const Article = () => {
                 </a>
               ),
               strong: ({ children }) => (
-                <strong className="font-bold text-[#1A1C19]">{children}</strong>
+                <strong className="font-bold text-foreground">{children}</strong>
               ),
               em: ({ children }) => (
-                <em className="italic text-neutral-600">{children}</em>
+                <em className="italic text-muted-foreground">{children}</em>
               ),
-              hr: () => <hr className="my-12 border-neutral-200" />,
+              hr: () => <hr className="my-12 border-border" />,
             }}
           >
             {post.content}
@@ -210,16 +210,16 @@ const Article = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="mt-20 pt-12 border-t border-neutral-200/50"
+          className="mt-20 pt-12 border-t border-border/50"
         >
           <div className="flex items-center justify-between">
             <button
               onClick={() => navigate("/archive")}
-              className="text-[11px] font-mono font-bold text-[#324A49] hover:underline underline-offset-8 transition-all"
+              className="text-[11px] font-mono font-bold text-primary hover:underline underline-offset-8 transition-all"
             >
               ← BACK_TO_ARCHIVE
             </button>
-            <div className="font-mono text-[9px] text-neutral-400">
+            <div className="font-mono text-[9px] text-muted-foreground">
               YUJUN@2026
             </div>
           </div>
